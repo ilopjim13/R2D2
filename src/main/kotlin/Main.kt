@@ -1,4 +1,9 @@
 fun main() {
+    do {
+        println("<ENTER> para terminar")
+        print("Introduce las posiciones que se va a mover: ")
+        var posiciones = readln()
+    } while (posiciones != "")
     var posicion: List<Int> = mover(10, 5, -2)
     println("x: ${posicion[0]}, y: ${posicion[1]}, direction: ${orientacionRobot(posicion[2])}")
     posicion = mover(0, 0, 0)
