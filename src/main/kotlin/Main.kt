@@ -8,10 +8,10 @@ fun main() {
             entrada = readln().toInt()
             posiciones.add(entrada)
         } catch (e: Exception) {
-            println("Error")
+            println("**ERROR** número introducido inválido.")
         }
-        print("¿Quieres añadir más direcciones (s/n)?")
-        seguir = readln()
+        print("¿Quieres añadir más direcciones (n para terminar)?")
+        seguir = readln().lowercase()
     } while (seguir != "n")
 
     var posicion: List<Int> = mover(posiciones)
