@@ -1,22 +1,21 @@
 fun main() {
-    var posiciones = mutableListOf<Int>()
+    val posiciones = mutableListOf<Int>()
     do {
-        println("<ENTER> para terminar")
-        print("Introduce las posiciones que se va a mover: ")
-        var entrada = readln()
-        posiciones.add(entrada.toInt())
-    } while (entrada != "")
+        val entrada:Int
+        val seguir:String
+        try {
+            print("Introduce las posiciones que se va a mover: ")
+            entrada = readln().toInt()
+            posiciones.add(entrada)
+        } catch (e: Exception) {
+            println("Error")
+        }
+        print("¿Quieres añadir más direcciones (s/n)?")
+        seguir = readln()
+    } while (seguir != "n")
 
     var posicion: List<Int> = mover(posiciones)
     println("x: ${posicion[0]}, y: ${posicion[1]}, direction: ${orientacionRobot(posicion[2])}")
-    //posicion = mover(0, 0, 0)
-    //println("x: ${posicion[0]}, y: ${posicion[1]}, direction: ${orientacionRobot(posicion[2])}")
-    //posicion = mover()
-    //println("x: ${posicion[0]}, y: ${posicion[1]}, direction: ${orientacionRobot(posicion[2])}")
-    //posicion = mover(-10, -5, 2)
-    //println("x: ${posicion[0]}, y: ${posicion[1]}, direction: ${orientacionRobot(posicion[2])}")
-    //posicion = mover(-10, -5, 2, 4, -8)
-    //println("x: ${posicion[0]}, y: ${posicion[1]}, direction: ${orientacionRobot(posicion[2])}")
 }
 
 /**
@@ -24,7 +23,7 @@ fun main() {
  * @param lista List<Int> Lista de movimientos que debe realizar el robot.
  * @return List<Int>
  */
-fun mover(movimientos: Int): List<Int> {
+fun mover( movimientos: List<Int>): List<Int> {
     var posx = 0
     var posy = 0
     var direccion = 0
@@ -37,6 +36,7 @@ fun mover(movimientos: Int): List<Int> {
         }
         if (direccion > 3) direccion = 0 else direccion++
     }
+    if (direccion == 4) direccion -= 1
     return listOf(posx, posy, direccion)
 }
 
