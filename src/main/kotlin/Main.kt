@@ -1,26 +1,25 @@
 fun main() {
-    val posiciones = mutableListOf<Int>()
+    val movimientos = mutableListOf<Int>()
     do {
         val entrada:Int
-        val seguir:String
         try {
             print("Introduce las posiciones que se va a mover: ")
             entrada = readln().toInt()
-            posiciones.add(entrada)
+            movimientos.add(entrada)
         } catch (e: Exception) {
             println("**ERROR** número introducido inválido.")
         }
-        print("¿Quieres añadir más direcciones (n para terminar)?")
-        seguir = readln().lowercase()
+        print("n para terminar, ENTER para seguir ")
+        val seguir:String = readln().lowercase()
     } while (seguir != "n")
 
-    var posicion: List<Int> = mover(posiciones)
+    val posicion: List<Int> = mover(movimientos)
     println("x: ${posicion[0]}, y: ${posicion[1]}, direction: ${orientacionRobot(posicion[2])}")
 }
 
 /**
  *
- * @param lista List<Int> Lista de movimientos que debe realizar el robot.
+ * @param movimientos List<Int> Lista de movimientos que debe realizar el robot.
  * @return List<Int>
  */
 fun mover( movimientos: List<Int>): List<Int> {
