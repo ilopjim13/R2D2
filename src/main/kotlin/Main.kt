@@ -35,7 +35,7 @@ fun mover( movimientos: List<Int>): List<Int> {
         }
         if (direccion > 3) direccion = 0 else direccion++
     }
-    if (direccion == 4) direccion -= 1
+    if (direccion == 4) direccion = 0
     return listOf(posx, posy, direccion)
 }
 
