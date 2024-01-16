@@ -1,8 +1,8 @@
 
-class Robot(val nombre:String) {
-    var posX: Int = 0
-    var posY: Int = 0
-    var dir: Int = 0
+class Robot(private val nombre:String) {
+    private var posX: Int = 0
+    private var posY: Int = 0
+    private var dir: Int = 0
 
     /**
      * Realiza los movimientos del robot en la dirección en la que está
