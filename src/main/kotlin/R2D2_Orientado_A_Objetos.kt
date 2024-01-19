@@ -40,6 +40,11 @@ class Robot(private val nombre:String) {
         }
 }
 
+enum class direccion(desc:String) {
+    ARRIBA("PositiveY"), ABAJO("NegativeX"), IZQUIERDA("NegativeY"), DERECHA("PositiveX")
+}
+
+
 fun main() {
     val movimientos = arrayOf(
         intArrayOf(1, -5, 0, -9),
