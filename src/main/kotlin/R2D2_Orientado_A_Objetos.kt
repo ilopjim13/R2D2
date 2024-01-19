@@ -18,6 +18,7 @@ class Robot(private val nombre:String) {
             }
             if (this.dir == 3) this.dir = 0 else this.dir++
         }
+
     }
 
     /**
